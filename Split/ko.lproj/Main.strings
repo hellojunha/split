@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Length"; ObjectID = "9OY-s6-8Qr"; */
+"9OY-s6-8Qr.text" = "길이";
+
+/* Class = "UILabel"; text = "s"; ObjectID = "PiQ-Db-jdK"; */
+"PiQ-Db-jdK.text" = "초";
+
+/* Class = "UITextField"; text = "30"; ObjectID = "Q1l-7Q-BI0"; */
+"Q1l-7Q-BI0.text" = "30";
+
+/* Class = "UIButton"; normalTitle = "Split!"; ObjectID = "btw-FN-bRr"; */
+"btw-FN-bRr.normalTitle" = "Split!";
+
+/* Class = "UIButton"; normalTitle = "Choose Video"; ObjectID = "zcI-eq-uSi"; */
+"zcI-eq-uSi.normalTitle" = "영상 선택";

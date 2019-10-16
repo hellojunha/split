@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  Split
+
+  Created by Alfred Woo on 2019/10/11.
+  Copyright © 2019 Alfred Woo. All rights reserved.
+*/
+
+"Unsupported video format." = "Unsupported video format.";
+"OK" = "OK";
+"Split finished!" = "Split finished!";
+"Processing %d of %d" = "Processing %d of %d";
+"%d videos are estimated to be created.\nAre you sure you want to continue?" = "%d videos are estimated to be created.\nAre you sure you want to continue?";
+"Continue" = "Continue";
+"Cancel" = "Cancel";
+"Invalid second!" = "Invalid second!";
+"Unnecessary split!" = "Unnecessary split!";
+"You need to allow Split to access your photo library to split videos." = "You need to allow Split to access your photo library to split videos.";
+"Later" = "Later";
+"Go to Settings" = "Go to Settings";
