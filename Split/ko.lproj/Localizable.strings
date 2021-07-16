@@ -17,4 +17,7 @@
 "Unnecessary split!" = "분할이 필요하지 않습니다!";
 "You need to allow Split to access your photo library to split videos." = "동영상을 분할하기 위해서는 사진 보관함에 접근이 필요합니다.";
 "Later" = "나중에 하기";
-"Go to Settings" = "설정으로";
+"Go to Settings" = "설정으로 이동";
+"Select Video" = "동영상 선택";
+"Photo Library" = "사진함에서 선택";
+"Documents" = "파일 열기";

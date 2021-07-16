@@ -10,10 +10,10 @@ import UIKit
 import AVKit
 import StoreKit
 import Photos
+import MobileCoreServices
 
 class ViewController: UIViewController {
     
-    private let imagePickerViewController = UIImagePickerController()
     private var url: URL?
     
     private var maxLength: Int = 60
@@ -61,12 +61,23 @@ class ViewController: UIViewController {
     }
 
     @IBAction func selectButtonTapped() {
-        self.imagePickerViewController.sourceType = .photoLibrary
-        self.imagePickerViewController.delegate = self
-        self.imagePickerViewController.mediaTypes = ["public.movie"]
-        self.imagePickerViewController.videoExportPreset = AVAssetExportPresetPassthrough
-        
-        self.present(self.imagePickerViewController, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Select Video".localized(), message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Photo Library".localized(), style: .default, handler: { _ in
+            let imagePicker = UIImagePickerController()
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.delegate = self
+            imagePicker.mediaTypes = ["public.movie"]
+            imagePicker.videoExportPreset = AVAssetExportPresetPassthrough
+            self.present(imagePicker, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Documents".localized(), style: .default, handler: { _ in
+            let documentPicker = UIDocumentPickerViewController(documentTypes: [kUTTypeMovie, kUTTypeMPEG4, kUTTypeVideo].map { $0 as String}, in: .open)
+            documentPicker.delegate = self
+            documentPicker.allowsMultipleSelection = false
+            self.present(documentPicker, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func splitButtonTapped() {
@@ -184,42 +195,53 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    private func loadVideo(at url: URL) {
+        self.url = url
+        self.splitButton.isEnabled = true
+        self.playButtonView.isHidden = false
+        
+        // 썸네일 로드
+        let asset = AVAsset(url: url)
+        let assetImageGenerator = AVAssetImageGenerator(asset: asset)
+        assetImageGenerator.appliesPreferredTrackTransform = true
+        assetImageGenerator.generateCGImagesAsynchronously(forTimes: [NSValue(time: CMTimeMakeWithSeconds(138, preferredTimescale: 1))]) { (_, image, _, result, _) in
+            if result == .succeeded {
+                if let image = image {
+                    DispatchQueue.main.async {
+                        self.videoThumbnailView.image = UIImage(cgImage: image)
+                    }
+                }
+            }
+        }
+        
+        self.videoLength = CMTimeGetSeconds(asset.duration)
+        self.maxLength = Int(ceil(self.videoLength))
+        if self.maxLength > 60 {
+            self.maxLength = 60
+        }
+        self.secondsSlider.maximumValue = Float(self.maxLength)
+        self.sliderValueChanged(self.secondsSlider)
+    }
+    
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        print("didFinishPickingMediaWithInfo")
-        print("\(info)")
-        
         if let url = info[.mediaURL] as? URL {
-            self.url = url
-            self.splitButton.isEnabled = true
-            self.playButtonView.isHidden = false
-            
-            // 썸네일 로드
-            let asset = AVAsset(url: url)
-            let assetImageGenerator = AVAssetImageGenerator(asset: asset)
-            assetImageGenerator.appliesPreferredTrackTransform = true
-            assetImageGenerator.generateCGImagesAsynchronously(forTimes: [NSValue(time: CMTimeMakeWithSeconds(138, preferredTimescale: 1))]) { (_, image, _, result, _) in
-                if result == .succeeded {
-                    if let image = image {
-                        DispatchQueue.main.async {
-                            self.videoThumbnailView.image = UIImage(cgImage: image)
-                        }
-                    }
-                }
-            }
-            
-            self.videoLength = CMTimeGetSeconds(asset.duration)
-            self.maxLength = Int(ceil(self.videoLength))
-            if self.maxLength > 60 {
-                self.maxLength = 60
-            }
-            self.secondsSlider.maximumValue = Float(self.maxLength)
-            self.sliderValueChanged(self.secondsSlider)
-            
+            self.loadVideo(at: url)
             picker.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+}
+
+extension ViewController: UIDocumentPickerDelegate {
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        if let url = urls.first {
+            self.loadVideo(at: url)
+            controller.dismiss(animated: true, completion: nil)
         }
     }
     
