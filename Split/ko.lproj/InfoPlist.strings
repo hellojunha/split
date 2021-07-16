@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Split
+
+  Created by Alfred Woo on 2021/07/16.
+  Copyright © 2021 Alfred Woo. All rights reserved.
+*/
+
+NSPhotoLibraryUsageDescription = "분할된 동영상을 사진함에 저장합니다";
