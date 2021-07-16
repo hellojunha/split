@@ -11,12 +11,12 @@
 "Split finished!" = "동영상 분할이 완료되었습니다!";
 "Processing %d of %d" = "진행중 (%d/%d)";
 "%d videos are estimated to be created.\nAre you sure you want to continue?" = "%d개의 동영상이 생성될 예정입니다.\n계속 진행할까요?";
-"Continue" = "예";
-"Cancel" = "아니요";
+"Continue" = "계속하기";
+"Cancel" = "취소";
 "Invalid second!" = "잘못된 시간입니다!";
 "Unnecessary split!" = "분할이 필요하지 않습니다!";
 "You need to allow Split to access your photo library to split videos." = "동영상을 분할하기 위해서는 사진 보관함에 접근이 필요합니다.";
-"Later" = "나중에 하기";
+"Later" = "나중에";
 "Go to Settings" = "설정으로 이동";
 "Select Video" = "동영상 선택";
 "Photo Library" = "사진함에서 선택";
