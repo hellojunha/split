@@ -85,15 +85,11 @@ class VideoTrimmer {
                 
                 PHPhotoLibrary.shared().performChanges({
                     PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: destinationURL)
-                }) { (saved, error) in
-                    if let error = error {
-                        print("saved: \(saved), error: \(error)")
-                        completion(false, error)
-                        return
-                    }
-                }
-                
-                completion(true, nil)
+                }, completionHandler: { (saved, error) in
+                    try? FileManager.default.removeItem(at: destinationURL)
+                    print("saved: \(saved), error: \(error?.localizedDescription ?? "no error")")
+                    completion(saved, error)
+                })
             }
         } else {
             let error = NSError(domain: "VideoTrimmerError", code: -1, userInfo: [
