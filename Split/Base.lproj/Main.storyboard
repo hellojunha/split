@@ -138,10 +138,12 @@
                         <constraints>
                             <constraint firstItem="rK7-wX-cSb" firstAttribute="top" secondItem="X6h-2m-mxC" secondAttribute="bottom" constant="40" id="7sa-qG-I7r"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rK7-wX-cSb" secondAttribute="trailing" constant="20" id="8ue-A1-YUm"/>
-                            <constraint firstItem="X6h-2m-mxC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="FZ0-Qg-9ZF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="rK7-wX-cSb" secondAttribute="bottom" constant="24" id="BOE-hv-lh9"/>
+                            <constraint firstItem="X6h-2m-mxC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" priority="980" id="FZ0-Qg-9ZF"/>
+                            <constraint firstItem="X6h-2m-mxC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P0T-gq-16Y"/>
                             <constraint firstItem="X6h-2m-mxC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ciC-5x-hk6"/>
                             <constraint firstItem="rK7-wX-cSb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="qJf-9j-xD1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X6h-2m-mxC" secondAttribute="trailing" id="ucq-4u-sRi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X6h-2m-mxC" secondAttribute="trailing" priority="980" id="ucq-4u-sRi"/>
                         </constraints>
                     </view>
                     <connections>
