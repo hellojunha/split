@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +23,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zKy-17-7Fp">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNs-3E-LOF">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNs-3E-LOF">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
                                         <connections>
                                             <action selector="playButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="As9-Tf-sWF"/>
@@ -30,7 +31,7 @@
                                     </button>
                                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="g1d-DH-McN">
                                         <rect key="frame" x="175" y="84.5" width="64" height="64"/>
-                                        <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" systemColor="systemGrayColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="64" id="Ah8-Oh-7bW"/>
                                             <constraint firstAttribute="width" secondItem="g1d-DH-McN" secondAttribute="height" multiplier="1:1" id="jdi-OV-1dr"/>
@@ -88,7 +89,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="Q1l-7Q-BI0" secondAttribute="bottom" id="3xe-Ap-JDj"/>
                                             <constraint firstItem="3V5-5r-dWc" firstAttribute="leading" secondItem="9OY-s6-8Qr" secondAttribute="trailing" constant="20" id="GGk-6g-yPL"/>
@@ -105,21 +106,21 @@
                                             <constraint firstItem="9OY-s6-8Qr" firstAttribute="leading" secondItem="ujI-nf-5d8" secondAttribute="leading" id="zbm-f4-dkh"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcI-eq-uSi">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcI-eq-uSi">
                                         <rect key="frame" x="0.0" y="60" width="374" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemFillColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="bdu-v7-JiQ"/>
                                         </constraints>
-                                        <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Choose Video"/>
                                         <connections>
-                                            <action selector="selectButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="fls-9z-OMm"/>
+                                            <action selector="selectButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Vc-qo-Uvh"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btw-FN-bRr">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btw-FN-bRr">
                                         <rect key="frame" x="0.0" y="120" width="374" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemFillColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="HDQ-aw-iaA"/>
                                         </constraints>
@@ -132,7 +133,8 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rK7-wX-cSb" firstAttribute="top" secondItem="X6h-2m-mxC" secondAttribute="bottom" constant="40" id="7sa-qG-I7r"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rK7-wX-cSb" secondAttribute="trailing" constant="20" id="8ue-A1-YUm"/>
@@ -141,7 +143,6 @@
                             <constraint firstItem="rK7-wX-cSb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="qJf-9j-xD1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X6h-2m-mxC" secondAttribute="trailing" id="ucq-4u-sRi"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="playButtonView" destination="g1d-DH-McN" id="KKk-rR-YhS"/>
@@ -158,5 +159,17 @@
     </scenes>
     <resources>
         <image name="play" width="128" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

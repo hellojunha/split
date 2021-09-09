@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func selectButtonTapped() {
+    @IBAction func selectButtonTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: "Select Video".localized(), message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Photo Library".localized(), style: .default, handler: { _ in
             let imagePicker = UIImagePickerController()
@@ -70,13 +70,19 @@ class ViewController: UIViewController {
             imagePicker.videoExportPreset = AVAssetExportPresetPassthrough
             self.present(imagePicker, animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "Documents".localized(), style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Files".localized(), style: .default, handler: { _ in
             let documentPicker = UIDocumentPickerViewController(documentTypes: [kUTTypeMovie, kUTTypeMPEG4, kUTTypeVideo].map { $0 as String}, in: .open)
             documentPicker.delegate = self
             documentPicker.allowsMultipleSelection = false
             self.present(documentPicker, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
+        
+        if let popoverPresentationController = alert.popoverPresentationController {
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = sender.convert(sender.bounds, to: self.view)
+        }
+        
         self.present(alert, animated: true, completion: nil)
     }
     
