@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1wi-NU-ckN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Video Split-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Split" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6h-2m-mxC">
-                                <rect key="frame" x="0.0" y="44" width="414" height="233"/>
+                                <rect key="frame" x="0.0" y="164" width="414" height="233"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zKy-17-7Fp">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
@@ -54,7 +54,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rK7-wX-cSb">
-                                <rect key="frame" x="20" y="317" width="374" height="170"/>
+                                <rect key="frame" x="20" y="437" width="374" height="170"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ujI-nf-5d8">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -141,11 +141,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="rK7-wX-cSb" secondAttribute="bottom" constant="24" id="BOE-hv-lh9"/>
                             <constraint firstItem="X6h-2m-mxC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" priority="980" id="FZ0-Qg-9ZF"/>
                             <constraint firstItem="X6h-2m-mxC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P0T-gq-16Y"/>
-                            <constraint firstItem="X6h-2m-mxC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ciC-5x-hk6"/>
+                            <constraint firstItem="X6h-2m-mxC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="ciC-5x-hk6"/>
                             <constraint firstItem="rK7-wX-cSb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="qJf-9j-xD1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X6h-2m-mxC" secondAttribute="trailing" priority="980" id="ucq-4u-sRi"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Video Split" id="ylK-BC-jv1"/>
                     <connections>
                         <outlet property="playButtonView" destination="g1d-DH-McN" id="KKk-rR-YhS"/>
                         <outlet property="secondsSlider" destination="3V5-5r-dWc" id="TBJ-5X-zVo"/>
@@ -156,7 +157,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="138"/>
+            <point key="canvasLocation" x="1042.0289855072465" y="137.94642857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7Cu-nO-5Rj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1wi-NU-ckN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eC2-PO-BXq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hER-so-Jqm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RXA-cg-fEY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
         </scene>
     </scenes>
     <resources>
