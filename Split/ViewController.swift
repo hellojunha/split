@@ -38,6 +38,17 @@ class ViewController: UIViewController {
         
         self.sliderValueChanged(self.secondsSlider)
         
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            let toolbar = UIToolbar()
+            toolbar.setItems([
+                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+                UIBarButtonItem(title: "Done".localized(), style: .done, target: self, action: #selector(dismissKeyboard))
+            ], animated: true)
+            toolbar.sizeToFit()
+            self.secondsTextField.inputAccessoryView = toolbar
+        }
+        
         self.secondsTextField.delegate = self
     }
     
@@ -255,14 +266,21 @@ extension ViewController: UIDocumentPickerDelegate {
 
 extension ViewController: UITextFieldDelegate {
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let val = Int(textField.text ?? "") {
-            if val > self.maxLength {
-                self.secondsSlider.value = Float(self.maxLength)
-                self.secondsTextField.text = String(self.maxLength)
-            } else {
-                self.secondsSlider.value = Float(val)
-            }
+        let numberOnlyString = textField.text?.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        let val = Int(numberOnlyString ?? "") ?? 0
+        
+        if val > self.maxLength {
+            self.secondsSlider.value = Float(self.maxLength)
+            self.secondsTextField.text = String(self.maxLength)
+        } else {
+            self.secondsSlider.value = Float(val)
+            self.secondsTextField.text = String(val)
         }
     }
     
